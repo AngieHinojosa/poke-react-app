@@ -1,0 +1,15 @@
+.pokedex-wrap { max-width: 960px; margin: 0 auto; padding: 16px; }
+.pokedex-card {
+  display: grid; gap: 12px;
+  border: 1px solid #eeeeee22; background: #111526;
+  border-radius: 12px; padding: 16px;
+}
+.pokedex-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.pokedex-title { margin: 0; text-transform: capitalize; }
+.pokedex-types { text-transform: capitalize; opacity: .9; }
+.pokedex-img { width: 200px; height: 200px; object-fit: contain; }
+.pokedex-meta { display: flex; gap: 16px; font-variant-numeric: tabular-nums; }
+.pokedex-desc { line-height: 1.45; white-space: pre-wrap; }
+@media (max-width: 600px) {
+  .pokedex-img { width: 160px; height: 160px; }
+}
