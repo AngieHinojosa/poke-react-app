@@ -6,6 +6,8 @@ import { useFavorites } from '../context/FavoritesContext'
 import Pagination from '../components/Pagination'
 import * as realApi from '../api/pokeapi'
 import { PokemonDetail } from '../types'
+import SearchFilter from '../components/SearchFilter'
+import FilterFavoritesButton from '../components/FilterFavoritesButton'
 
 type Card = { id: number; name: string; sprite: string | null }
 const PAGE_SIZE = 30
@@ -62,15 +64,10 @@ export default function PokeGrid({ api = defaultApi }: { api?: Api }) {
 
   return (
     <main className="grid-wrap">
-      <section className="grid-toolbar">
-        <input
-          className="search"
-          placeholder="Search by name"
-          value={query}
-          onChange={e => setQuery(e.target.value)}
-        />
-        <button className="min" onClick={() => setOnlyFavs(v => !v)}>{onlyFavs ? 'All' : 'Only favorites'}</button>
-      </section>
+        <section className="grid-toolbar">
+            <SearchFilter value={query} onChange={setQuery} />
+            <FilterFavoritesButton onlyFavs={onlyFavs} onToggle={() => setOnlyFavs(v => !v)} />
+        </section>
 
       {loading ? (
         <Loader />

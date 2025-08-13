@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { getPokemonDetail, getPokemonSpecies } from '../api/pokeapi'
 import { PokemonDetail } from '../types'
 import Loader from '../components/Loader'
+import PokemonTypeList from '../components/PokemonTypeList'
 import '../styles/pokedex.css'
 
 type View = {
@@ -58,17 +59,23 @@ export default function Pokedex() {
   return (
     <main className="pokedex-wrap">
       <button className="min" onClick={() => navigate('/grid')}>Back</button>
-      <section className="pokedex-card">
-        <div className="pokedex-header">
-          <h1 className="pokedex-title">#{data.id} {data.name}</h1>
-          <div className="pokedex-types">{data.types.join(' / ')}</div>
+      <section className="retro-card">
+        <div className="retro-head">
+          <span className="rid">{String(data.id).padStart(3,'0')}</span>
+          <span className="rname">{data.name}</span>
         </div>
-        <img className="pokedex-img" src={data.img ?? ''} alt={data.name} />
-        <div className="pokedex-meta">
-          <div>WT: {data.weightKg} kg</div>
-          <div>HT: {data.heightM} m</div>
+        <div className="retro-body">
+          <div className="dial" />
+          <img className="sprite" src={data.img ?? ''} alt={data.name} />
         </div>
-        <p className="pokedex-desc">{data.description || 'No description available.'}</p>
+        <div className="pokedex-types">
+          <PokemonTypeList types={data.types} />
+        </div>
+        <div className="retro-specs">
+          <div>WT <strong>{data.weightKg} kg</strong></div>
+          <div>HT <strong>{data.heightM} m</strong></div>
+        </div>
+        <p className="retro-desc">{data.description || 'No description available.'}</p>
       </section>
     </main>
   )

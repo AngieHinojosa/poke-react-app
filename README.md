@@ -7,10 +7,9 @@ Aplicación web que consume la **PokeAPI** y permite buscar, filtrar y marcar Po
 ## Tecnologías
 - **Vite** + **React 18** + **TypeScript**
 - **React Router DOM**
-- **Framer Motion** (animaciones en Landing)
-- **Vitest** + **Testing Library** (test unitario)
+- **Vitest** + **Testing Library**
 - **CSS**
-- **localStorage** para persistir favoritos
+- **localStorage** (persistir favoritos)
 
 ---
 
@@ -26,7 +25,7 @@ Aplicación web que consume la **PokeAPI** y permite buscar, filtrar y marcar Po
 ## Instalación y ejecución
 
 # Clonar el repositorio
-git clone <URL_DEL_REPO>
+git clone https://github.com/AngieHinojosa/poke-react-app.git
 
 # Instalar dependencias
 npm install

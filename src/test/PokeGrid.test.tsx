@@ -48,16 +48,15 @@ test('renders, filters by name, toggles and filters favorites', async () => {
   expect(screen.getByText(/bulbasaur/i)).toBeInTheDocument()
 
   const titleEl = screen.getByText(/bulbasaur/i)
-  const cardEl = titleEl.closest('.card')
+  const cardEl = titleEl.closest('.retro-tile') || titleEl.closest('.card')
   if (!cardEl || !(cardEl instanceof HTMLElement)) {
     throw new Error('Card element not found or not an HTMLElement')
   }
 
-  const favBtn = within(cardEl).getByRole('button', { name: /^Favorite$/i })
+  const favBtn = within(cardEl).getByRole('button', { name: /add to favorites/i })
   fireEvent.click(favBtn)
 
   fireEvent.click(screen.getByRole('button', { name: /^Only favorites$/i }))
-
   await screen.findByRole('button', { name: /^All$/i })
 
   expect(screen.getByText(/bulbasaur/i)).toBeInTheDocument()

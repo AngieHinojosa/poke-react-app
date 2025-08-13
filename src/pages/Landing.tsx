@@ -13,42 +13,62 @@ export default function Landing() {
   }, [navigate])
 
   return (
-    <main className="landing" aria-label="Landing page">
-      <motion.div
-        className="landing__halo"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, scale: [0.96, 1.02, 1] }}
-        transition={{ duration: 1.1, ease: 'easeOut' }}
-      />
-      <motion.h1
-        className="landing__title"
-        initial={{ y: 24, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7 }}
-      >
-        Pokédex Challenge
-      </motion.h1>
-      <motion.p
-        className="landing__subtitle"
-        initial={{ y: 12, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-      >
-        Explore. Filter. Favorite. Learn.
-      </motion.p>
-      <motion.button
-        className="landing__start"
-        aria-label="Start app and go to grid"
-        initial={{ scale: 0.95, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        whileHover={{ scale: 1.04 }}
-        whileTap={{ scale: 0.98 }}
-        transition={{ duration: 0.25 }}
-        onClick={() => navigate('/grid')}
-      >
-        START
-      </motion.button>
-      <div className="landing__hint" aria-hidden="true">Press Enter ↵</div>
+    <main className="landing">
+      <section className="retro">
+        <div className="retro-bar">POKÉDEX REGISTRATION</div>
+        <div className="retro-grid">
+          <div className="retro-col">
+            <div className="kicker">PINFLAG · POKEDEX</div>
+            <h1 className="retro-title">Explore and save your favorite Pokémon</h1>
+            <p className="retro-subtitle">Search by name, persistent favorites, and full profiles with weight, height, and types.</p>
+            <div className="retro-cta">
+              <motion.button
+                className="start primary"
+                aria-label="Ir a la grilla"
+                initial={{ scale: 0.96, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.99 }}
+                onClick={() => navigate('/grid')}
+              >
+                START
+              </motion.button>
+              <span className="hint">Press Enter ↵</span>
+            </div>
+          </div>
+
+          <motion.div
+            className="retro-media"
+            initial={{ y: 12, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="retro-card">
+              <div className="retro-head">
+                <span className="rid">094</span>
+                <span className="rname">GENGAR</span>
+              </div>
+              <div className="retro-body">
+                <div className="dial" />
+                <img
+                  className="sprite"
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png"
+                  alt="Gengar preview"
+                />
+              </div>
+              <div className="retro-types">
+                <span className="chip type-ghost">GHOST</span>
+                <span className="chip type-poison">POISON</span>
+              </div>
+              <div className="retro-specs">
+                <div>HT <strong>4'11"</strong></div>
+                <div>WT <strong>89.3 lbs</strong></div>
+              </div>
+              <p className="retro-desc">The leer that floats in darkness belongs to a Gengar delighting in casting curses on people.</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </main>
   )
 }
