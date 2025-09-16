@@ -1,4 +1,4 @@
-# Pinflag Pokedex
+# Pokedex
 
 Aplicación web que consume la **PokeAPI** y permite buscar, filtrar y marcar Pokémon como favoritos, construida con React, Vite y TypeScript, y testeada con Vitest y Testing Library.
 
